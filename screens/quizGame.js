@@ -3,7 +3,6 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
   Dimensions,
   TouchableOpacity,
   ImageBackground,
@@ -122,7 +121,6 @@ export default function QuizGame(props) {
   };
 
   const generateCapitalQuestions = () => {
-    //i am chosing the countries i want to ask which capital they have.
     let countryQuestion = [];
     for (let i = 0; i < props.navigation.getParam("questionsCount"); i++) {
       let random = Math.floor(Math.random() * countries.length);
@@ -249,21 +247,14 @@ export default function QuizGame(props) {
         console.log("gresit");
       }
 
-      // console.log(completionBarStatus);
       setVariants([0, 0, 0, 0]);
       setQuestionCounter((prevCounter) => prevCounter + 1);
-
-      // console.log(shuffleVariants);
-      // console.log(questions);
     }
   };
 
   const variantButtonPressed = (index) => {
     let temp = [0, 0, 0, 0];
     temp[index] = 1;
-
-    // console.log(temp);
-    // console.log(variants);
 
     setVariants(temp);
   };
@@ -316,7 +307,9 @@ export default function QuizGame(props) {
               <Text style={styles.quizTypeContainerText}>
                 {props.navigation.getParam("type")} Quiz
               </Text>
-              <Text style={styles.quizTypeContainerTime}>{minutes}:{seconds}</Text>
+              <Text style={styles.quizTypeContainerTime}>
+                {minutes}:{seconds}
+              </Text>
             </View>
 
             <View style={styles.quizQuestionCounterContainer}>
@@ -369,8 +362,6 @@ export default function QuizGame(props) {
             </View>
           </View>
           <View style={styles.bottomContainer}>
-            {/* <Button title="go back to home" onPress={navigateBackToHome} /> */}
-
             <TouchableOpacity onPress={navigateBackToHome}>
               <View style={styles.quitButton}>
                 <Text style={styles.quitButtonText}>Quit Quiz</Text>
@@ -398,7 +389,7 @@ export default function QuizGame(props) {
           <AnimatedLoader
             visible={visible}
             overlayColor="rgba(53,66,113,0)"
-            source={require("./loading3.json")}
+            source={require("../assets/loading3.json")}
             animationStyle={styles.lottie}
             speed={1}
           ></AnimatedLoader>
@@ -412,8 +403,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#354272",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   containerAnimation: {
     width: 100,
@@ -449,23 +438,15 @@ const styles = StyleSheet.create({
   },
   quizQuestionCounterContainer: {
     height: (Dimensions.get("window").width * 10) / 100,
-
     marginLeft: 10,
-
-    // borderColor: "yellow",
-    // borderWidth: 2,
     justifyContent: "center",
   },
   quizQuestionCounterContainerText: {
     color: "white",
     fontSize: 30,
     fontFamily: "Mitr-Regular",
-    //fontFamily: "Mitr-SemiBold",
-    //fontFamily: "OtomanopeeOne-Regular"
   },
   completionBarContainer: {
-    // borderColor: "red",
-    // borderWidth: 2,
     height: (Dimensions.get("window").width * 5) / 100,
   },
   questionContainer: {
@@ -473,8 +454,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginLeft: 4,
     marginRight: 4,
-    // borderColor: "yellow",
-    // borderWidth: 2,
     justifyContent: "center",
   },
   questionContainerText: {
@@ -485,15 +464,12 @@ const styles = StyleSheet.create({
   },
   answerOptionsContainer: {
     marginTop: 30,
-    // borderColor: "red",
-    // borderWidth: 2,
     height: (Dimensions.get("window").width * 60) / 100,
     marginHorizontal: 10,
   },
   bottomContainer: {
     width: (Dimensions.get("window").width * 100) / 100,
     height: (Dimensions.get("window").width * 20) / 100,
-
     marginBottom: 5,
     justifyContent: "space-between",
     flexDirection: "row",
@@ -512,12 +488,9 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     textAlign: "center",
-    //fontFamily: "Mitr-Regular",
     fontFamily: "Mitr-Regular",
   },
   nextButton: {
-    //backgroundColor: "#06CFF2",
-    //backgroundColor: {nextButtonBackgroundColor},
     borderRadius: 15,
     marginRight: 15,
     width: (Dimensions.get("window").width * 40) / 100,

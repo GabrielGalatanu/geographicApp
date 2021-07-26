@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  FlatList,
-  ImageBackground,
-} from "react-native";
-import { createStackNavigator } from "react-navigation";
-import FlatButton from "../shared/button";
+import { StyleSheet, View, FlatList, ImageBackground } from "react-native";
 
 import CountryCell from "../components/countryCell";
 
@@ -20,8 +11,7 @@ export default function Countries(props) {
   }, []);
 
   const getCountriesFromApiAsync = async () => {
-    console.log(props.navigation.getParam("continent"));
-
+    
     try {
       let url = "https://restcountries.eu/rest/v2/region/";
       let continent = props.navigation.getParam("continent");
@@ -40,7 +30,6 @@ export default function Countries(props) {
   };
 
   const navigateToScreen = (country) => {
-    console.log(country);
     props.navigation.navigate("CountryDetails", { country: country });
   };
 
@@ -73,7 +62,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#354272",
     alignItems: "center",
-   // paddingHorizontal: 20,
+    // paddingHorizontal: 20,
   },
   item: {
     marginTop: 10,

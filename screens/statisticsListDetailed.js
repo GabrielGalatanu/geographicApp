@@ -195,7 +195,7 @@ export default function StatisticsListDetailed(props) {
           <AnimatedLoader
             visible={visible}
             overlayColor="rgba(53,66,113,0)"
-            source={require("./loading3.json")}
+            source={require("../assets/loading3.json")}
             animationStyle={styles.lottie}
             speed={1}
           ></AnimatedLoader>
@@ -204,20 +204,6 @@ export default function StatisticsListDetailed(props) {
     );
   }
 }
-
-// return (
-//   <View style={styles.container}>
-//     <View style={styles.containerAnimation}>
-//       <AnimatedLoader
-//         visible={visible}
-//         overlayColor="rgba(53,66,113,0)"
-//         source={require("./loading3.json")}
-//         animationStyle={styles.lottie}
-//         speed={1}
-//       ></AnimatedLoader>
-//     </View>
-//   </View>
-// );
 
 const styles = StyleSheet.create({
   container: {

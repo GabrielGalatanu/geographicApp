@@ -3,11 +3,9 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   Dimensions,
   ScrollView,
   Image,
-  FlatList,
   ImageBackground,
 } from "react-native";
 
@@ -32,8 +30,9 @@ export default function CountryDetails(props) {
   const [seconds, setSeconds] = useState("-");
   const [utcTimes, setUtcTimes] = useState([]);
   const [utcTimeSelected, setUtcTimeSelected] = useState(0);
+  const [doneReceivingData, setDoneReceivingData] = useState(false);
 
-  let separationLine = "#2B5C6B"; // MODIFIC SI ADAUG LA STYLES
+  let separationLine = "#2B5C6B";
   let date = new Date();
 
   let countryTimeInterval;
@@ -49,11 +48,6 @@ export default function CountryDetails(props) {
   }, []);
 
   useEffect(() => {
-    //localTimeCalculator();
-
-    //Imi zicea 'country[0] is undefined'.
-    //probabil se executa acest cod inainte de eventuala finalizare a promosiunii...
-    //Nu stiu daca asta e cea mai optima metoda de a remedia problema.
     if (country[0] != undefined) {
       localTimeCalculator();
       getExchangeRateApiAsync();
@@ -71,6 +65,8 @@ export default function CountryDetails(props) {
       for (let i = 0; i < countries.length; i++) {
         getNeighboursApiAsync(countries[i], i);
       }
+
+      setDoneReceivingData(true);
     }
   }, [country]);
 
@@ -127,14 +123,14 @@ export default function CountryDetails(props) {
 
       // COMMENTED BECAUSE I HAVE LIMITED AMOUNT OF REQUESTS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-      // let response = await fetch(toFetchUrl);
-      // let json = await response.json();
+      let response = await fetch(toFetchUrl);
+      let json = await response.json();
 
-      // let value =
-      //   json.rates[Localization.currency] /
-      //   json.rates[country[0].currencies[0].code];
+      let value =
+        json.rates[Localization.currency] /
+        json.rates[country[0].currencies[0].code];
 
-      // setCurrencyValue(value.toFixed(3));
+      setCurrencyValue(value.toFixed(3));
 
       // COMMENTED BECAUSE I HAVE LIMITED AMOUNT OF REQUESTS //
     } catch (error) {
@@ -203,15 +199,11 @@ export default function CountryDetails(props) {
           }
         }
 
-
-        
         if ((date.getUTCMinutes() + extraMinutes + 60) % 60 < 10) {
           setMinutes("0" + ((date.getUTCMinutes() + extraMinutes + 60) % 60));
         } else {
           setMinutes((date.getUTCMinutes() + extraMinutes + 60) % 60);
         }
-
-
       }
 
       if (date.getUTCSeconds() < 10) {
@@ -226,42 +218,42 @@ export default function CountryDetails(props) {
   };
 
   const timeCounter = () => {
-    setSeconds((x) => {
-      if (parseInt(x) + 1 > 59) {
-        setMinutes((y) => {
-          if (parseInt(y) + 1 > 59) {
-            setHours((z) => {
-              if (parseInt(z) + 1 < 10) {
-                return "0" + (parseInt(z) + 1);
-              }
-              return parseInt(z) + 1;
-            });
-            return "00";
-          }
+    // setSeconds((x) => {
+    //   if (parseInt(x) + 1 > 59) {
+    //     setMinutes((y) => {
+    //       if (parseInt(y) + 1 > 59) {
+    //         setHours((z) => {
+    //           if (parseInt(z) + 1 < 10) {
+    //             return "0" + (parseInt(z) + 1);
+    //           }
+    //           return parseInt(z) + 1;
+    //         });
+    //         return "00";
+    //       }
 
-          if (parseInt(y) + 1 < 10) {
-            return "0" + (parseInt(y) + 1);
-          } else {
-            return parseInt(y) + 1;
-          }
-        });
+    //       if (parseInt(y) + 1 < 10) {
+    //         return "0" + (parseInt(y) + 1);
+    //       } else {
+    //         return parseInt(y) + 1;
+    //       }
+    //     });
 
-        return "00";
-      }
+    //     return "00";
+    //   }
 
-      if (parseInt(x) + 1 < 10) {
-        return "0" + (parseInt(x) + 1);
-      } else {
-        return parseInt(x) + 1;
-      }
-    });
+    //   if (parseInt(x) + 1 < 10) {
+    //     return "0" + (parseInt(x) + 1);
+    //   } else {
+    //     return parseInt(x) + 1;
+    //   }
+    // });
   };
 
   const navigateToScreen = (neighbour) => {
     props.navigation.push("CountryDetails", { country: neighbour });
   };
 
-  if (country[0] != undefined)
+  if (country[0] != undefined && doneReceivingData == true)
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -436,7 +428,7 @@ export default function CountryDetails(props) {
         <AnimatedLoader
           visible={visible}
           overlayColor="rgba(53,66,113,0)"
-          source={require("./loading3.json")}
+          source={require("../assets/loading3.json")}
           animationStyle={styles.lottie}
           speed={1}
         ></AnimatedLoader>
@@ -500,7 +492,6 @@ const styles = StyleSheet.create({
   },
   countryNameText: {
     color: "white",
-    // fontWeight: "bold",
     fontSize: 16,
     textAlign: "center",
     marginTop: 5,

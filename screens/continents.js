@@ -1,8 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Button, ImageBackground } from "react-native";
-
-import { createStackNavigator } from "react-navigation";
+import { StyleSheet, View, ImageBackground } from "react-native";
 
 import FlatButton from "../shared/button";
 

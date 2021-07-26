@@ -3,7 +3,6 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
   Dimensions,
   TouchableOpacity,
   ImageBackground,
@@ -232,35 +231,25 @@ export default function QuizGameFlags(props) {
       }
 
       if (shuffleVariants[variantChosen] == questions[questionCounter * 4]) {
-        //IF THE ANSWER IS CORRECT
         let bar = [];
         bar = completionBarStatus;
         bar[questionCounter] = 0;
         setCompletionBarStatus(bar);
-        console.log("correct");
       } else {
         let bar = [];
         bar = completionBarStatus;
         bar[questionCounter] = 1;
         setCompletionBarStatus(bar);
-        console.log("gresit");
       }
 
-      // console.log(completionBarStatus);
       setVariants([0, 0, 0, 0]);
       setQuestionCounter((prevCounter) => prevCounter + 1);
-
-      // console.log(shuffleVariants);
-      // console.log(questions);
     }
   };
 
   const variantButtonPressed = (index) => {
     let temp = [0, 0, 0, 0];
     temp[index] = 1;
-
-    // console.log(temp);
-    // console.log(variants);
 
     setVariants(temp);
   };
@@ -368,7 +357,6 @@ export default function QuizGameFlags(props) {
             </View>
           </View>
           <View style={styles.bottomContainer}>
-            {/* <Button title="go back to home" onPress={navigateBackToHome} /> */}
 
             <TouchableOpacity onPress={navigateBackToHome}>
               <View style={styles.quitButton}>
@@ -397,7 +385,7 @@ export default function QuizGameFlags(props) {
           <AnimatedLoader
             visible={visible}
             overlayColor="rgba(53,66,113,0)"
-            source={require("./loading3.json")}
+            source={require("../assets/loading3.json")}
             animationStyle={styles.lottie}
             speed={1}
           ></AnimatedLoader>
@@ -411,8 +399,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#354272",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   image: {
     flex: 1,
@@ -444,23 +430,15 @@ const styles = StyleSheet.create({
   },
   quizQuestionCounterContainer: {
     height: (Dimensions.get("window").width * 10) / 100,
-
     marginLeft: 10,
-
-    // borderColor: "yellow",
-    // borderWidth: 2,
     justifyContent: "center",
   },
   quizQuestionCounterContainerText: {
     color: "white",
     fontSize: 30,
     fontFamily: "Mitr-Regular",
-    //fontFamily: "Mitr-SemiBold",
-    //fontFamily: "OtomanopeeOne-Regular"
   },
   completionBarContainer: {
-    // borderColor: "red",
-    // borderWidth: 2,
     height: (Dimensions.get("window").width * 5) / 100,
   },
   questionContainer: {
@@ -468,8 +446,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginLeft: 4,
     marginRight: 4,
-    // borderColor: "yellow",
-    // borderWidth: 2,
     justifyContent: "center",
   },
   questionContainerText: {
@@ -485,9 +461,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: (Dimensions.get("window").height * 10) / 100,
-    //marginTop: 30,
-    // borderColor: "red",
-    // borderWidth: 2,
     height: (Dimensions.get("window").width * 60) / 100,
     marginHorizontal: 10,
   },
@@ -513,11 +486,9 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     textAlign: "center",
-    //fontFamily: "Mitr-Regular",
     fontFamily: "Mitr-Regular",
   },
   nextButton: {
-    //backgroundColor: "#06CFF2",
     borderRadius: 15,
     marginRight: 15,
     width: (Dimensions.get("window").width * 40) / 100,

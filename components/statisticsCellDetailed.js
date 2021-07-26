@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, Dimensions } from "react-native";
 import StatisticsCellQuestionView from "./statisticsCellQuestionView";
 
 export default function StatisticsCellDetailed(props) {
-  
   if (props.type == "Capital") {
     return (
       <View style={styles.container}>
@@ -173,7 +172,6 @@ export default function StatisticsCellDetailed(props) {
 const styles = StyleSheet.create({
   container: {
     width: (Dimensions.get("window").width * 90) / 100,
-    // height: (Dimensions.get("window").height * 52) / 100,
     borderRadius: 10,
     borderWidth: 3,
     borderColor: "#2A5C6B",
@@ -183,14 +181,10 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
   },
   questionContainer: {
-    //height: (Dimensions.get("window").width * 20) / 100,
-
     marginTop: 20,
     marginBottom: 20,
     marginLeft: 4,
     marginRight: 4,
-    // borderColor: "yellow",
-    // borderWidth: 2,
     justifyContent: "center",
   },
   questionContainerText: {
@@ -200,10 +194,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   answerOptionsContainer: {
-    //  marginTop: 30,
-    // borderColor: "red",
-    // borderWidth: 2,
-    //height: (Dimensions.get("window").width * 70) / 100,
     marginHorizontal: 10,
   },
   answerOptionsContainerFlag: {

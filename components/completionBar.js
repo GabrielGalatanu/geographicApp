@@ -1,29 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Dimensions } from "react-native";
-import { gestureHandlerRootHOC } from "react-native-gesture-handler";
+import React, { useEffect } from "react";
+import { StyleSheet, View, Dimensions } from "react-native";
 
 export default function CompletionBar({ count, answerArray }) {
-  // const [barStatus, setBarStatus] = useState([]);
-
   let keyCounter = -1;
   useEffect(() => {
-    // console.log('BAA');
-    // let temp = [];
-
-    // for (let i = 0; i < count; i++) temp[i] = answerArray[i];
-
-    // setBarStatus(temp);
     keyCounter = -1;
   }, []);
 
   useEffect(() => {
-    // console.log('BAA2');
-    // let temp = [];
-
-    // for (let i = 0; i < count; i++) temp[i] = answerArray[i];
-
-    // console.log('TEMP ESTE: ', temp);
-    // setBarStatus(temp);
     keyCounter = -1;
   }, [answerArray]);
 

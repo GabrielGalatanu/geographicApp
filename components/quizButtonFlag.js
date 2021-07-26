@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   TouchableOpacity,
-  Text,
   View,
   Dimensions,
   Image,
 } from "react-native";
-//
+
 export default function QuizButtonFlag({ index, alpha2Code, onPress, ok }) {
-  //const [ok, setOk] = useState(false);
   const [borderColour, setBorderColor] = useState("#565D7A");
 
   const buttonPressed = () => {

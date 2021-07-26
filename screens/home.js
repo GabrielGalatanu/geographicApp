@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, ImageBackground } from "react-native";
+import { StyleSheet, View, ImageBackground } from "react-native";
 
 import FlatButton from "../shared/button";
 

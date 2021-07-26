@@ -99,7 +99,6 @@ export default function QuizResults(props) {
     setQuestionsCount(counterQuestions);
 
     if (counterQuestions == 5) {
-      console.log(counterAnswers);
       if (counterAnswers < 2) {
         setStatus(2);
       } else if (counterAnswers >= 2 && counterAnswers <= 4) {
@@ -138,18 +137,18 @@ export default function QuizResults(props) {
 
     date = date + "/" + month + "/" + year + " " + hours + ":" + min;
 
-    removeValue();
-    // storeData({
-    //   region: props.navigation.getParam("region"),
-    //   numberQuestions: counterQuestions,
-    //   correctAnswers: counterAnswers,
-    //   date: date,
-    //   type: type,
-    //   completionBar: completionBar,
-    //   questions: questions,
-    //   answers: answers,
-    //   shuffleVariantsArray: shuffleVariantsArray,
-    // });
+    //removeValue();
+    storeData({
+      region: props.navigation.getParam("region"),
+      numberQuestions: counterQuestions,
+      correctAnswers: counterAnswers,
+      date: date,
+      type: type,
+      completionBar: completionBar,
+      questions: questions,
+      answers: answers,
+      shuffleVariantsArray: shuffleVariantsArray,
+    });
 
     setCorrectAnswers(counterAnswers);
   }, [history]);

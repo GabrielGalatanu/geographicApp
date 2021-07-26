@@ -4,18 +4,13 @@ import {
   TouchableOpacity,
   Text,
   View,
-  Image,
   Dimensions,
 } from "react-native";
 
-export default function StatisticsCell({
-  onPress,
-  item
-}) {
-
+export default function StatisticsCell({ onPress, item }) {
   const onPressTouchable = () => {
     onPress(item);
-  }
+  };
   return (
     <TouchableOpacity onPress={() => onPressTouchable()}>
       <View style={styles.container}>
@@ -24,7 +19,9 @@ export default function StatisticsCell({
           <Text style={styles.topDateText}>{item.date}</Text>
         </View>
         <View style={styles.scoreContainer}>
-          <Text style={styles.scoreContainerText}>{item.correctAnswers}/{item.numberQuestions}</Text>
+          <Text style={styles.scoreContainerText}>
+            {item.correctAnswers}/{item.numberQuestions}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -44,8 +41,6 @@ const styles = StyleSheet.create({
   topContainer: {
     width: (Dimensions.get("window").width * 80) / 100,
     height: (Dimensions.get("window").height * 3) / 100,
-    // borderColor:'red',
-    // borderWidth: 2,
     justifyContent: "space-between",
     flexDirection: "row",
   },
@@ -54,7 +49,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 12,
     textAlign: "left",
-    //fontFamily: "Mitr-Regular",
     fontFamily: "Mitr-Regular",
   },
   topDateText: {
@@ -62,12 +56,9 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 12,
     textAlign: "left",
-    //fontFamily: "Mitr-Regular",
     fontFamily: "Mitr-Regular",
   },
   scoreContainer: {
-    // borderColor:'red',
-    // borderWidth: 2,
     width: (Dimensions.get("window").width * 70) / 100,
     height: (Dimensions.get("window").height * 7) / 100,
     marginTop: 0,

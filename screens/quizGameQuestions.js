@@ -24,8 +24,6 @@ export default function QuizGameQuestions(props) {
         questionsCount: data,
       });
     }
-
-    console.log(props.navigation.getParam("type"));
   };
 
   return (

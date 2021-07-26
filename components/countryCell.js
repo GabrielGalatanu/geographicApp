@@ -7,7 +7,6 @@ import {
   Image,
   Dimensions,
 } from "react-native";
-import { gestureHandlerRootHOC } from "react-native-gesture-handler";
 
 export default function CountryCell({ alpha2Code, country, onPress }) {
   let countryFlagUrl =
@@ -48,7 +47,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 5,
     marginBottom: 5,
-    width: Dimensions.get("window").width*90/100,
+    width: (Dimensions.get("window").width * 90) / 100,
     height: 80,
   },
   narrow: {
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
   countryText: {
     fontSize: 15,
     color: "#F4F5F6",
-    letterSpacing: 1, 
-    fontFamily: "Mitr-SemiBold",  
+    letterSpacing: 1,
+    fontFamily: "Mitr-SemiBold",
   },
 });

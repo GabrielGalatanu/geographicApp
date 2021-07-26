@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
 export default function TimezonePicker(props) {
   const [selectedLanguage, setSelectedLanguage] = useState("sasda");
 
   const onChangePicker = (itemValue, itemIndex) => {
-    //itemindex ma intereseaza;
     props.setUtcTime(itemIndex);
   };
 
@@ -39,14 +38,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    // borderColor: 'red',
-    // borderWidth: 4,
     width: 40,
     height: 30,
   },
   pickerText: {
     color: "white",
-    // fontWeight: "bold",
     fontSize: 16,
     textAlign: "center",
     marginTop: 5,

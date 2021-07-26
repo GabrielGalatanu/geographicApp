@@ -9,7 +9,6 @@ import {
 } from "react-native";
 
 export default function QuizButton({ index, text, onPress, ok }) {
-  //const [ok, setOk] = useState(false);
   const [borderColour, setBorderColor] = useState("#565D7A");
 
   const buttonPressed = () => {

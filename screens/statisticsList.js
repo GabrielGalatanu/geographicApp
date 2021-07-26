@@ -8,7 +8,6 @@ import {
   FlatList,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import FlatButton from "../shared/button";
 
 import StatisticsCell from "../components/statisticsCell";
 
@@ -50,8 +49,6 @@ export default function StatisticsList(props) {
   };
 
   if (historyCounter != 0) {
-    console.log("AAAA");
-    console.log(historyCounter);
     return (
       <View style={styles.container}>
         <ImageBackground
@@ -74,7 +71,6 @@ export default function StatisticsList(props) {
       </View>
     );
   } else {
-    console.log("BBBB");
     return (
       <View style={styles.container}>
         <ImageBackground

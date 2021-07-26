@@ -30,10 +30,12 @@ export default function QuizGameRegion(props) {
 
         <FlatButton text="Europe" onPress={() => navigateToScreen("europe")} />
 
-        <FlatButton
-          text="Oceania"
-          onPress={() => navigateToScreen("oceania")}
-        />
+        {props.navigation.getParam("type") != "Neighbours" && (
+          <FlatButton
+            text="Oceania"
+            onPress={() => navigateToScreen("oceania")}
+          />
+        )}
       </ImageBackground>
     </View>
   );
