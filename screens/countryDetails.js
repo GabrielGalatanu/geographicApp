@@ -218,35 +218,35 @@ export default function CountryDetails(props) {
   };
 
   const timeCounter = () => {
-    // setSeconds((x) => {
-    //   if (parseInt(x) + 1 > 59) {
-    //     setMinutes((y) => {
-    //       if (parseInt(y) + 1 > 59) {
-    //         setHours((z) => {
-    //           if (parseInt(z) + 1 < 10) {
-    //             return "0" + (parseInt(z) + 1);
-    //           }
-    //           return parseInt(z) + 1;
-    //         });
-    //         return "00";
-    //       }
+    setSeconds((x) => {
+      if (parseInt(x) + 1 > 59) {
+        setMinutes((y) => {
+          if (parseInt(y) + 1 > 59) {
+            setHours((z) => {
+              if (parseInt(z) + 1 < 10) {
+                return "0" + (parseInt(z) + 1);
+              }
+              return parseInt(z) + 1;
+            });
+            return "00";
+          }
 
-    //       if (parseInt(y) + 1 < 10) {
-    //         return "0" + (parseInt(y) + 1);
-    //       } else {
-    //         return parseInt(y) + 1;
-    //       }
-    //     });
+          if (parseInt(y) + 1 < 10) {
+            return "0" + (parseInt(y) + 1);
+          } else {
+            return parseInt(y) + 1;
+          }
+        });
 
-    //     return "00";
-    //   }
+        return "00";
+      }
 
-    //   if (parseInt(x) + 1 < 10) {
-    //     return "0" + (parseInt(x) + 1);
-    //   } else {
-    //     return parseInt(x) + 1;
-    //   }
-    // });
+      if (parseInt(x) + 1 < 10) {
+        return "0" + (parseInt(x) + 1);
+      } else {
+        return parseInt(x) + 1;
+      }
+    });
   };
 
   const navigateToScreen = (neighbour) => {
